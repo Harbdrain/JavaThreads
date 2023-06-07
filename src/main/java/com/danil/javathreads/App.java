@@ -13,8 +13,8 @@ class Foo {
                 e.printStackTrace();
                 return;
             }
+            System.out.println("first");
         }
-        System.out.println("first");
     }
 
     public void second(Runnable r) {
@@ -27,8 +27,8 @@ class Foo {
                 e.printStackTrace();
                 return;
             }
+            System.out.println("second");
         }
-        System.out.println("second");
     }
 
     public void third(Runnable r) {
@@ -41,8 +41,8 @@ class Foo {
                 e.printStackTrace();
                 return;
             }
+            System.out.println("third");
         }
-        System.out.println("third");
     }
 }
 
