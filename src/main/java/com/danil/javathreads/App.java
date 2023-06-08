@@ -1,7 +1,7 @@
 package com.danil.javathreads;
 
 class Foo {
-    public static int phase = 0;
+    public int phase = 0;
 
     public void first(Runnable r) {
         synchronized (r) {
@@ -13,8 +13,8 @@ class Foo {
                 e.printStackTrace();
                 return;
             }
-            System.out.println("first");
         }
+        System.out.println("first");
     }
 
     public void second(Runnable r) {
@@ -27,8 +27,8 @@ class Foo {
                 e.printStackTrace();
                 return;
             }
-            System.out.println("second");
         }
+        System.out.println("second");
     }
 
     public void third(Runnable r) {
@@ -41,8 +41,8 @@ class Foo {
                 e.printStackTrace();
                 return;
             }
-            System.out.println("third");
         }
+        System.out.println("third");
     }
 }
 
@@ -76,19 +76,19 @@ public class App {
         b.start();
 
         synchronized (rA) {
-            Foo.phase = 1;
+            foo.phase = 1;
             rA.notify();
         }
         a.join();
 
         synchronized (rB) {
-            Foo.phase = 2;
+            foo.phase = 2;
             rB.notify();
         }
         b.join();
 
         synchronized (rC) {
-            Foo.phase = 3;
+            foo.phase = 3;
             rC.notify();
         }
         c.join();
